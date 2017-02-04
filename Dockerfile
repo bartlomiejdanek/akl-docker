@@ -5,7 +5,7 @@ EXPOSE 27015/udp
 EXPOSE 27020/udp
 EXPOSE 27005/udp
 ENV DEBIAN_FRONTEND noninteractive
-RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc1 libstdc++6:i386 curl tmux bsdmainutils wget mailutils postfix git nano\
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc1 libstdc++6:i386 curl tmux bsdmainutils wget mailutils postfix git nano python bzip2 unzip\
   && apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*\
   && (useradd -m cs && chown cs:cs /home/cs -R && echo "cs ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers)\
   && (curl https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/master/CounterStrikeGlobalOffensive/csgoserver > /home/cs/csgoserver)\
