@@ -5,7 +5,6 @@ EXPOSE 27015/udp
 EXPOSE 27020/udp
 EXPOSE 27005/udp
 ENV DEBIAN_FRONTEND noninteractive
-CMD bash
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc1 libstdc++6:i386 curl tmux bsdmainutils wget mailutils postfix git nano\
   && apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*\
   && (useradd -m cs && chown cs:cs /home/cs -R && echo "cs ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers)\
