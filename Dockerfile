@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y lib32gcc1 libstdc++6:i386 curl tmux bsdmainutils wget mailutils postfix git nano\
   && apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*\
   && (useradd -m cs && chown cs:cs /home/cs -R && echo "cs ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers)\
-  && (curl https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/CounterStrikeGlobalOffensive/csgoserver > /home/cs/csgoserver)\
+  && (curl https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/master/CounterStrikeGlobalOffensive/csgoserver > /home/cs/csgoserver)\
   && chmod a+x /home/cs/csgoserver && chown cs:cs /home/cs/csgoserver\
   && (echo "cs ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers)
 USER cs
